@@ -64,7 +64,7 @@ public class BatchImageCompressor {
                     ignoreAspectRatio = Boolean.valueOf(args[i]);
                     break;
                 case "-help":
-                    System.out.println("usage: BatchImageCompressor -f <target_folder> [-w <width> -h <height> [-a]");
+                    System.out.println("usage: BatchImageCompressor -f <target_folder> [-w <width> -h <height> [-a]]");
                     System.out.println("-f <target_folder> Specifies a folder to look for images in to compress");
                     System.out.println("-w <width> Specifies a new (max) width of pictures");
                     System.out.println("-h <height> Specifies a new (max) height of pictures");
