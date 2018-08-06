@@ -103,7 +103,12 @@ public class BatchImageCompressor {
      * @param maintainAspectRatio Whether or not to maintain the aspect ratio
      */
     public void compressImages(int width, int height, boolean maintainAspectRatio) throws IOException, ImageException {
+        int originalTargetWidth = width;
+        int originalTargetHeight = height;
         for (File i : allImages) {
+            width = originalTargetWidth;
+            height = originalTargetHeight;
+
             // Read the image
             BufferedImage originalImage = ImageIO.read(i);
             int type = originalImage.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : originalImage.getType();

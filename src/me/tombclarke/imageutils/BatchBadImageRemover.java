@@ -99,7 +99,7 @@ public class BatchBadImageRemover {
             imgRemover.deleteBadImages();
             System.out.println("Removed.");
             cleaned = true;
-        } else {
+        } else if (autoMove == null) {
             System.out.println("Do you want to delete bad images? Y/N");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine().toLowerCase();
@@ -156,6 +156,10 @@ public class BatchBadImageRemover {
                 }
             } catch (IOException e) {
                 // The exception is expected (as the file is broken) so we shall ignore it
+                imagesToMarkCorrupted.add(imgToCheck);
+            } catch (Exception e) {
+                // A more general exception... not expected, so we'll log it and carry on anyway (assuming this file to be corrupt)
+                e.printStackTrace();
                 imagesToMarkCorrupted.add(imgToCheck);
             }
         }
